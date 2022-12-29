@@ -1,0 +1,67 @@
+<!-- <ul class="list-group">
+    <a [routerLink]= "ruta.path"
+    class="list-group-item"
+    *ngFor = "let ruta of rutas"> 
+    {{ruta.name}}
+    </a>
+</ul> -->
+<!-- <mat-chip-list aria-label="Fish selection">
+    <mat-chip>One fish</mat-chip>
+    <mat-chip>Two fish</mat-chip>
+    <mat-chip color="primary" selected>Primary fish</mat-chip>
+    <mat-chip color="accent" selected>Accent fish</mat-chip>
+  </mat-chip-list> -->
+
+
+
+      <mat-sidenav-container fullscreen>
+        <mat-sidenav #sidenav opened="true" mode="side">
+          <div class="example-button-row">
+           
+            <mat-toolbar>
+              <button mat-icon-button
+                      (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                      <mat-icon>home</mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                      <mat-icon>undo</mat-icon>
+                    </button>
+            </mat-toolbar>
+            </div>
+              
+          <mat-selection-list #archivos [multiple]="false">
+            <mat-list-option  *ngFor = "let archivo of Archivos$ |async" [value]="archivo.ruta" (click)="cargarNuevoDirectorio(archivos.selectedOptions.hasValue() ? archivos.selectedOptions.selected[0].value : '')">
+               <mat-icon mat-list-icon> folder</mat-icon>   
+                {{archivo.name}}
+            </mat-list-option> 
+            </mat-selection-list> 
+        </mat-sidenav>
+        <mat-toolbar>
+          <button mat-icon-button
+                  (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+                </button>
+        </mat-toolbar>
+
+        <vg-player class="reproductor">
+          <vg-overlay-play vgFor="my-video"></vg-overlay-play>
+        
+          <video #media [vgMedia]="$any(media)" poster="" id="singleVideo" preload="auto" controls>
+              <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+          </video>
+        </vg-player>
+   
+      </mat-sidenav-container>
+
+     
+
+
+
+
+       
+
+  
+
