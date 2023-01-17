@@ -7,6 +7,7 @@ export interface Archivo {
     ruta:        string;
     name:        string;
     isDirectory: boolean;
+    base64: string;
 }
 
 export interface Ruta {
