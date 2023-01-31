@@ -1,45 +1,29 @@
+
 .mat-list-base .mat-list-item {
-    color: #000;
-
+    color: whitesmoke;
     font-style: normal;
-
-   
-
     margin-top: 0px;
-
     left: 0px;
-
   }.mat-icon{
-
     color: khaki;
   }
-
   .example-button-row button,
-.example-button-row a {
-
-    
+.example-button-row a {  
     margin-top: 20px;
-
     left: 20px;
-
     right: 20px;
-
     margin-right: 20px;
     
 }.mat-fab{
-
   color: white;
-
   background-color: black;  
 }
-
 .example-container {
   width: auto;
   height: auto;
   /* margin: 10px;
   border: 1px solid #555; */
 }
-
 .reproductor {
   color: white;
   top: 70px;

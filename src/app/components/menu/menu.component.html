@@ -49,59 +49,12 @@
     </button>
   </mat-toolbar>
 
-  <!-- <vg-player class="reproductor">
-    <vg-overlay-play vgFor="my-video"></vg-overlay-play>
-
-    <video
-      #media
-      [vgMedia]="$any(media)"
-      poster=""
-      id="singleVideo"
-      preload="auto"
-      controls
-    >
-      <source
-        src="http://static.videogular.com/assets/videos/videogular.mp4"
-        type="video/mp4"
-      />
+    <video crossorigin>
+    <source src="https:/172.31.113.159/media/archivos/videos/enero22/2022/01/27.01.22/WIN_20220127_10_07_50_Pro.mp4"/> 
     </video>
-  </vg-player> -->
-  <vg-player class="reproductor">
-    <vg-overlay-play></vg-overlay-play>
-    <vg-buffering></vg-buffering>
-  
-    <vg-controls>
-        <vg-play-pause></vg-play-pause>
-        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
-  
-        <vg-scrub-bar>
-           <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-           <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
-        </vg-scrub-bar>
-  
-        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
-  
-        <vg-track-selector></vg-track-selector>
-        <vg-mute></vg-mute>
-        <vg-volume></vg-volume>
-  
-        <vg-fullscreen></vg-fullscreen>
-    </vg-controls>
-  
-    <video
-    #media
-    [vgMedia]="$any(media)"
-    crossorigin
-  >
-    <source src="https:/172.31.113.159/media/archivos/videos/enero22/2022/01/27.01.22/WIN_20220127_10_07_50_Pro.mp4"
-    type="video/mp4" autoplay="autoplay"
-  /> 
-    </video>
-  </vg-player> 
 
   <!-- <video controls=>
     <source type="video/mp4" src={{path_video}}>  
   </video>
 
 </mat-sidenav-container> -->
-

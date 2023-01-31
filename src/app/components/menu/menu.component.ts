@@ -21,30 +21,6 @@ export class MenuComponent implements OnInit {
   public path_base: string = "data:video/mp4;base64,";
   public path_video: string;
   //refreshArchivos$ = new BehaviorSubject<boolean>(true);
-
-  rutas = [
-    {
-      name: 'Home',
-      path: '/home',
-      directorio: 'true',
-    },
-    {
-      name: 'Contact',
-      path: '/contact',
-      directorio: 'true',
-    },
-    {
-      name: 'About',
-      path: '/about',
-      directorio: 'false',
-    },
-    {
-      name: 'Directory',
-      path: '/directory',
-      directorio: 'false',
-    },
-  ];
-
   constructor(private service: RestService) {}
 
   ngOnInit(): void {
