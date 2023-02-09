@@ -1,22 +1,61 @@
 
+/* Define el color del panel Superior */
+.header{
+  background-color: #0066FF;
+}
+
+/* body y despliegue definen el color del fondo de la pantalla principal y el panel izquierdo */
+.body{
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+.despliegue{
+  background-color: whitesmoke;
+   /* border-color: #B9C8E6;  */
+   /* border-width: medium; */
+ 
+}
+
 .mat-list-base .mat-list-item {
-    color: whitesmoke;
+   color: #000; 
+  /* border-color: black; */
     font-style: normal;
     margin-top: 0px;
-    left: 0px;
-  }.mat-icon{
-    color: khaki;
+    left: 0px;     
   }
-  .example-button-row button,
-.example-button-row a {  
-    margin-top: 20px;
+
+  .mat-icon{
+    color: linear-gradient(to left,#B9C8E6, whitesmoke);
+  }
+  .folder{
+    color: rgb(236, 214, 13);
+    background-color: whitesmoke;
+  }
+  
+  .video{
+    color: red;
+    background-color: whitesmoke;
+  }
+  .pdf{
+    color: rgb(155, 14, 14);
+    background-color: whitesmoke;
+  }
+  .exe{
+    color: #000;
+    background-color: whitesmoke;
+  }
+  .dav{
+    color: #000;
+    background-color: whitesmoke;
+  }
+  
+  .button-row button,
+.button-row a {  
+    
     left: 20px;
     right: 20px;
     margin-right: 20px;
-    
-}.mat-fab{
-  color: white;
-  background-color: black;  
 }
 .example-container {
   width: auto;
@@ -25,11 +64,54 @@
   border: 1px solid #555; */
 }
 .reproductor {
-  color: white;
-  top: 70px;
-  left: 200px;
-  right: 200px;
-  bottom: 70px;
-  width: 75%;
-  height: 75%;
+  margin-top: 75px;
+  margin-left: 300px;
+  width: 60%;
+  height: 40%;
+  background-color: #000;
+}
+
+.mat-list-base .mat-list-item:hover{
+  border-radius: 10px;
+  color: whitesmoke;
+  background-color:#0066FF;
+}
+
+.header-icon:hover{
+  color: #000F9F;
+}
+
+.nofile-card{
+  background-color: rgb(233, 232, 232);
+  border-style: inset;
+  border-radius: 50px;
+  width: 350px;
+  color: #000;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+ 
+}
+
+
+.emptyfile{
+  font-size: large;
+  font-style: normal;
+}
+
+/* Prueba scroll bar para lista de archivos */
+
+.custom-scroll-bar{
+  height: 80vh;
+  overflow-y:scroll;
+  overflow-x: hidden;
+}
+
+.custom-scroll-bar::-webkit-scrollbar{
+  width: 5px;
+  /* margin-left: 5px; */
+}
+
+.custom-scroll-bar::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.26);
 }

@@ -16,10 +16,12 @@ export class MenuComponent implements OnInit {
   public Archivos$: Observable<Archivo[]>;
   public refreshArchivos$ = new BehaviorSubject<boolean>(true);
   public ruta: Ruta = { url: '' };
-  public play: boolean = false;
-  public video: Archivo;
-  public path_base: string = "data:video/mp4;base64,";
+  public video$: Observable<Archivo>;
   public path_video: string;
+  public play: boolean = false;
+  public name_video : string;
+ 
+
   //refreshArchivos$ = new BehaviorSubject<boolean>(true);
   constructor(private service: RestService) {}
 
@@ -52,14 +54,23 @@ export class MenuComponent implements OnInit {
     } else {
       console.log(ruta);
       this.ruta.url = ruta;
-      this.play = true;
-      this.path_video = this.path_base;
-      this.ReproducirVideo();
+
+      this.video$ = this.service.GetVideo(this.ruta);
+
+      this.video$.subscribe (resp => {
+        this.name_video = resp.name;       
+        this.path_video = resp.ruta;
+         console.log(this.name_video);
+         this.play = true;
+      });
+      
+       
     }
+    
+   
   }
 
-  ReproducirVideo() {
-    this.service.GetVideo(this.ruta).subscribe(archivo => this.path_video += archivo.base64);
-    console.log(this.path_video);
+  descargar(){
+        
   }
 }

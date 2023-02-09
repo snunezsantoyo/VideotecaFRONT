@@ -1,60 +1,73 @@
-<!-- <ul class="list-group">
-    <a [routerLink]= "ruta.path"
-    class="list-group-item"
-    *ngFor = "let ruta of rutas"> 
-    {{ruta.name}}
-    </a>
-</ul> -->
-<!-- <mat-chip-list aria-label="Fish selection">
-    <mat-chip>One fish</mat-chip>
-    <mat-chip>Two fish</mat-chip>
-    <mat-chip color="primary" selected>Primary fish</mat-chip>
-    <mat-chip color="accent" selected>Accent fish</mat-chip>
-  </mat-chip-list> -->
-
-
-  <!-- En el contenedor mat-side-nav se encuentran todos los elementos de la pagina -->
-<mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav opened="true" mode="side">  <!-- Dentro de #sidenav se encuentra el listado del repositorio-->
-    <div class="example-button-row">
-      <mat-toolbar>
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
+ <!-- En el contenedor mat-side-nav se encuentran todos los elementos de la pagina -->
+<mat-sidenav-container fullscreen class="body">
+  <mat-sidenav #sidenav opened="true" mode="side" class="despliegue"> <!-- Dentro de #sidenav se encuentra el listado del repositorio-->
+    <div class="button-row">
+      <mat-toolbar class="header">
+        <button mat-icon-button (click)="regresar()">
+          <mat-icon class="header-icon">undo</mat-icon>
         </button>
         <button mat-icon-button (click)="cargarHome()">
-          <mat-icon>home</mat-icon>
+          <mat-icon class="header-icon">home</mat-icon>
         </button>
-        <button mat-icon-button (click)="regresar()">
-          <mat-icon>undo</mat-icon>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon class="header-icon">menu</mat-icon>
         </button>
       </mat-toolbar>
     </div>
 
-    <mat-selection-list #archivos [multiple]="false">
-      <mat-list-option
-        *ngFor="let archivo of Archivos$ | async"
-        [value]="archivo.ruta"
-        (click)="
+    <mat-selection-list #archivos [multiple]="false" class="custom-scroll-bar">
+      <mat-list-option *ngFor="let archivo of Archivos$ | async" [value]="archivo.ruta" (click)="
           cargarNuevoDirectorio(
             archivos.selectedOptions.hasValue()
               ? archivos.selectedOptions.selected[0].value:'', archivo.isDirectory)">
-        <mat-icon mat-list-icon> folder</mat-icon>
+              
+                <mat-icon mat-list-icon *ngIf="archivo.isDirectory; else isFile" class="folder"> folder </mat-icon>        
+                    
+              
+        <!-- picture_as_pdf  smart_display video_file folder -->
+        <ng-template #isFile> 
+           
+            <mat-icon mat-list-icon *ngIf="archivo.extension == '.mp4' || archivo.extension == '.dav'" class="video"> smart_display </mat-icon>
+          
+            <mat-icon mat-list-icon *ngIf="archivo.extension == '.pdf'" class="pdf"> picture_as_pdf </mat-icon>
+          
+            <mat-icon mat-list-icon *ngIf="archivo.extension == '.exe'" class="exe"> video_file </mat-icon>
+
+            <mat-icon mat-list-icon *ngIf="archivo.extension == '.dav'" class="exe"> download_for_offline </mat-icon>
+        </ng-template>
         {{ archivo.name }}
       </mat-list-option>
     </mat-selection-list>
   </mat-sidenav>
-  <mat-toolbar>
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
+
+  <mat-toolbar class="header">
+    <button mat-icon-button (click)="sidenav.toggle()" >
+      <mat-icon class="header-icon">menu</mat-icon>
     </button>
   </mat-toolbar>
 
-    <video crossorigin>
-    <source src="https:/172.31.113.159/media/archivos/videos/enero22/2022/01/27.01.22/WIN_20220127_10_07_50_Pro.mp4"/> 
-    </video>
+     <div *ngIf="play; else nofile"> 
+      <video controls="controls" preload="none" [volume]="0" class="reproductor" [src]= "path_video"  type="video/mp4" width="60%" height="40%"> 
+      </video>
+  
+   </div> 
 
-  <!-- <video controls=>
-    <source type="video/mp4" src={{path_video}}>  
-  </video>
+   <ng-template #nofile> 
+    <mat-card class="nofile-card">
+      <img mat-card-image src="\assets\resources\nofile.png" height="300px">
+      <mat-card-content>
+        <label class="emptyfile">
+          Selecciona un archivo.
+        </label>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button> -->
+      </mat-card-actions>
+    </mat-card>
+   </ng-template>
+    <!-- <h1>{{name_video}}</h1> -->
 
-</mat-sidenav-container> -->
+
+
+</mat-sidenav-container> 
